@@ -50,7 +50,7 @@ public class LoginIntentActivity extends AppCompatActivity {
                 String pass=e2.getText().toString();
                 Intent i=new Intent(getApplicationContext(),Login2.class);
                 i.putExtra("user",user);
-                if(user.equals("Vishal")&& pass.equals("pass@123")){
+                if(user.equals("saurabh")&& pass.equals("pass@123")){
                     startActivity(i);
                 }
                 else{

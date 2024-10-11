@@ -112,7 +112,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        Button btnPdf = findViewById(R.id.button7);
+        Button btnPdf = findViewById(R.id.button11);
         btnPdf.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
