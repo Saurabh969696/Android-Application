@@ -10,6 +10,7 @@ import android.location.LocationManager;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -24,7 +25,7 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class LocationActivity extends AppCompatActivity {
 
-    Button btnGetLocation;
+    Button btnGetLocation,b2;
     TextView appname,showLocation;
     LocationManager locationManager;
     private static final int REQUEST_LOCATION = 1;
@@ -48,6 +49,18 @@ public class LocationActivity extends AppCompatActivity {
         showLocation = findViewById(R.id.textView2);
         appname=findViewById(R.id.textView);
         btnGetLocation = findViewById(R.id.button);
+        b2=findViewById(R.id.Button12);
+
+        b2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Intent to navigate back to MainActivity
+                Intent intent = new Intent(LocationActivity.this, MainActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
         btnGetLocation.setOnClickListener(view -> {
             locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
             if (!locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)) {

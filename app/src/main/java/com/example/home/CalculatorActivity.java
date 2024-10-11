@@ -1,5 +1,6 @@
 package com.example.home;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -41,11 +42,22 @@ public class CalculatorActivity extends AppCompatActivity {
             Button div=findViewById(R.id.div);
             Button dot=findViewById(R.id.dot);
             Button equal=findViewById(R.id.equal);
+            Button back=findViewById(R.id.button14);
 
             TextView screen=findViewById(R.id.screen);
 
             AC.setOnClickListener(view -> {
                 screen.setText("0");
+            });
+
+            back.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    // Intent to navigate back to MainActivity
+                    Intent intent = new Intent(CalculatorActivity.this, MainActivity.class);
+                    startActivity(intent);
+                    finish(); // Optional: Close BMI activity
+                }
             });
             num1.setOnClickListener(new View.OnClickListener() {
                 @Override

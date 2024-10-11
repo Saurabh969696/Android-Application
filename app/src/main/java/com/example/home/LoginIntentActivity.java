@@ -26,11 +26,23 @@ public class LoginIntentActivity extends AppCompatActivity {
             return insets;
         });
         EditText e1,e2;
-        Button b1,b2;
+        Button b1,b2,b3;
         e1=findViewById(R.id.editTextText);
         e2=findViewById(R.id.editTextText2);
         b1=findViewById(R.id.button);
         b2=findViewById(R.id.button2);
+        b3=findViewById(R.id.Button5);
+
+        b3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Intent to navigate back to MainActivity
+                Intent intent = new Intent(LoginIntentActivity.this, MainActivity.class);
+                startActivity(intent);
+                finish(); // Optional: Close BMI activity
+            }
+        });
+
         b1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

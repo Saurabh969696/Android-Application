@@ -24,7 +24,7 @@ import java.util.*;
 
 public class TextToSpeechActivity extends AppCompatActivity {
 
-    private Button b;
+    private Button b,b4;
     EditText e;
     TextToSpeech textToSpeech;
     private ImageView iv_mic;
@@ -38,8 +38,19 @@ public class TextToSpeechActivity extends AppCompatActivity {
 
         iv_mic = findViewById(R.id.imageView);
         b = findViewById(R.id.button);
+        b4= findViewById(R.id.Button2);
         e = findViewById(R.id.editTextText);
         tv_Speech_to_text = findViewById(R.id.tv_Speech_to_text);  // Initialize TextView
+
+        b4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Intent to navigate back to MainActivity
+                Intent intent = new Intent(TextToSpeechActivity.this, MainActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
 
         iv_mic.setOnClickListener(new View.OnClickListener() {
             @Override

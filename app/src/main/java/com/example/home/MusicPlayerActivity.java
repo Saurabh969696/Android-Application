@@ -13,6 +13,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
+import android.widget.Button;
 import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -29,6 +30,7 @@ public class MusicPlayerActivity extends AppCompatActivity {
     TextView currentTime, totalTime;
     Handler handler = new Handler();
     AudioManager audioManager;
+    Button back;
 
     // Playlist and song index
     int[] playlist = {R.raw.song1, R.raw.song2, R.raw.song3};
@@ -41,6 +43,20 @@ public class MusicPlayerActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_music_player);
+
+        back=findViewById(R.id.button15);
+
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Intent to navigate back to MainActivity
+                Intent intent = new Intent(MusicPlayerActivity.this, MainActivity.class);
+                startActivity(intent);
+                finish(); // Optional: Close BMI activity
+            }
+        });
+
+
 
         // Ask for notification permission for Android 13 and above
         requestNotificationPermission();

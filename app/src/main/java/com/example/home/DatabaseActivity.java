@@ -1,5 +1,6 @@
 package com.example.home;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -15,7 +16,7 @@ import androidx.core.view.WindowInsetsCompat;
 public class DatabaseActivity extends AppCompatActivity {
 
     EditText etId, etName, etAge, etCity, etPhone;
-    Button btnInsert, btnUpdate, btnDelete, btnView;
+    Button btnInsert, btnUpdate, btnDelete, btnView,b4;
     DbHelper dbHelper;
 
     @Override
@@ -32,8 +33,20 @@ public class DatabaseActivity extends AppCompatActivity {
         btnUpdate = findViewById(R.id.button2);
         btnDelete = findViewById(R.id.button3);
         btnView = findViewById(R.id.button4);
+        b4 = findViewById(R.id.Button3);
 
         dbHelper = new DbHelper(this);
+
+
+        b4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Intent to navigate back to MainActivity
+                Intent intent = new Intent(DatabaseActivity.this, MainActivity.class);
+                startActivity(intent);
+                finish(); // Optional: Close BMI activity
+            }
+        });
 
         // Insert data with manually entered ID
         btnInsert.setOnClickListener(new View.OnClickListener() {

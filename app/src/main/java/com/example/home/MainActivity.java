@@ -112,5 +112,15 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        Button btnPdf = findViewById(R.id.button7);
+        btnPdf.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Intent to navigate to MusicPlayerActivity
+                Intent intent = new Intent(MainActivity.this, pdfreader.class);
+                startActivity(intent);
+            }
+        });
+
     }
 }

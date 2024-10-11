@@ -1,11 +1,11 @@
 package com.example.home;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -20,12 +20,11 @@ import java.io.InputStream;
 public class pdfreader extends AppCompatActivity {
 
     TextView e1;
-    Button b1;
+    Button b1, b2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_pdfreader);
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
@@ -36,6 +35,17 @@ public class pdfreader extends AppCompatActivity {
 
         e1 = findViewById(R.id.textview7);
         b1 = findViewById(R.id.button);
+        b2 = findViewById(R.id.Button18);
+
+        b2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Intent to navigate back to MainActivity
+                Intent intent = new Intent(pdfreader.this, MainActivity.class);
+                startActivity(intent);
+                finish(); // Optional: Close PDF reader activity
+            }
+        });
 
         b1.setOnClickListener(new View.OnClickListener() {
             @Override

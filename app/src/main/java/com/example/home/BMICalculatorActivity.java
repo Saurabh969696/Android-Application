@@ -1,17 +1,13 @@
 package com.example.home;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 public class BMICalculatorActivity extends AppCompatActivity {
 
@@ -20,6 +16,7 @@ public class BMICalculatorActivity extends AppCompatActivity {
     private TextView resultText;
     private Button calculateButton;
     private Button resetButton;
+    private Button backButton; // Added Back Button
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +28,7 @@ public class BMICalculatorActivity extends AppCompatActivity {
         resultText = findViewById(R.id.textView5);
         calculateButton = findViewById(R.id.button);
         resetButton = findViewById(R.id.button2);
+        backButton = findViewById(R.id.backButton); // Initialize Back Button
 
         calculateButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -45,6 +43,17 @@ public class BMICalculatorActivity extends AppCompatActivity {
                 resetFields();
             }
         });
+
+        // Handle Back Button to navigate back to MainActivity
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Intent to navigate back to MainActivity
+                Intent intent = new Intent(BMICalculatorActivity.this, MainActivity.class);
+                startActivity(intent);
+                finish(); // Optional: Close BMI activity
+            }
+        });
     }
 
     private void calculateBMI() {
@@ -54,8 +63,6 @@ public class BMICalculatorActivity extends AppCompatActivity {
         if (!heightStr.isEmpty() && !weightStr.isEmpty()) {
             float height = Float.parseFloat(heightStr) / 100;
             float weight = Float.parseFloat(weightStr);
-
-
 
             float bmi = weight / (height * height);
             String bmiCategory = getBMICategory(bmi);
@@ -77,7 +84,6 @@ public class BMICalculatorActivity extends AppCompatActivity {
             return "Obesity";
         }
     }
-
 
     private void resetFields() {
         heightInput.setText("");

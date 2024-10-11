@@ -1,5 +1,6 @@
 package com.example.home;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -28,9 +29,21 @@ public class DiceActivity1 extends AppCompatActivity {
             return insets;
         });
         ImageView i;
-        Button b;
+        Button b,b2;
         i=findViewById(R.id.imageView);
         b=findViewById(R.id.button);
+        b2=findViewById(R.id.Button);
+
+        b2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Intent to navigate back to MainActivity
+                Intent intent = new Intent(DiceActivity1.this, MainActivity.class);
+                startActivity(intent);
+                finish(); // Optional: Close BMI activity
+            }
+        });
+
         b.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
